@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 class Baidu1(unittest.TestCase):
     def setUp(self):
         # print("setUp方法")
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
         self.base_url = "http://www.baidu.com/"
         self.driver.maximize_window()
@@ -34,7 +34,7 @@ class Baidu1(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url)
         driver.find_element_by_id("kw").clear()
-        driver.find_element_by_id("kw").send_keys(u"雪之成")
+        driver.find_element_by_id("kw").send_keys(u"大虞海棠")
         driver.find_element_by_id("su").click()
         time.sleep(6)
 
@@ -63,5 +63,5 @@ class Baidu1(unittest.TestCase):
                 alert.dismiss()
             return alert_text
         finally: self.accept_next_alert = True
-    if __name__ == "__main__":
-        unittest.main(verbosity=2)
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
